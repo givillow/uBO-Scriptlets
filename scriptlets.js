@@ -97,16 +97,18 @@
 })();
 
 /// run-script.js
-/// alias rs.js
-// example.com##+js(rs, /script.js)
+/// alias rns.js
+// example.com##+js(rns, script.js)
 (() => { 
-          'use strict';
-          const log = console.log.bind(console);
-          log('test');
-          const script = '{{1}}';
-          if ( script === '' || script === '{{1}}' ) { return; }
-          const log = console.log.bind(console);
-          log('uBO: run-script("%s")', script);
+	//'use strict';
+	const log = console.log.bind(console);
+	log('test');
+//           const log = console.log.bind(console);
+//           log('test');
+//           const script = '{{1}}';
+//           if ( script === '' || script === '{{1}}' ) { return; }
+//           const log = console.log.bind(console);
+//           log('uBO: run-script("%s")', script);
 })();
 
 /// set-attr.js
