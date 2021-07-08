@@ -101,6 +101,8 @@
 // example.com##+js(rs, /script.js)
 (() => { 
           'use strict';
+          const log = console.log.bind(console);
+          log('test');
           const script = '{{1}}';
           if ( script === '' || script === '{{1}}' ) { return; }
           const log = console.log.bind(console);
