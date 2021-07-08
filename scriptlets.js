@@ -106,7 +106,7 @@
 	if ( script === '' ) { return; }
 	const log = console.log.bind(console);
 	log('uBO: run-script("%s")', script);
-	const addScript = = function() {
+	const addScript = function() {
 		log('addScript');
 		const node = document.createElement('script');
 		//s.src = 'https://letsdoeit.com/dist/script.js?r=1625583788';
