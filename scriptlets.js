@@ -111,7 +111,7 @@
 		//s.src = 'https://letsdoeit.com/dist/script.js?r=1625583788';
 		node.src = script;
 		document.body.appendChild(node);
-	}
+	};
 	if ( document.readyState !== 'complete' && /\bcomplete\b/.test(behavior) ) {
 		window.addEventListener('load', addScript, { once: true });
 	} else if ( document.readyState === 'loading' ) {
