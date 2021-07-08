@@ -98,7 +98,7 @@
 
 /// run-script.js
 /// alias rs.js
-// example.com##+js(rns, script.js)
+// example.com##+js(rns, dist/script.js)
 (() => { 
 	'use strict';
 	const script = '{{1}}';
@@ -107,14 +107,10 @@
 	const log = console.log.bind(console);
 	log('uBO: run-script("%s")', script);
 	const addScript = () => {
-		log('addScript');
 		const node = document.createElement('script');
-		//node.src = 'dist/script.js';
 		node.src = script;
 		document.body.appendChild(node);
 	}
-	addScript();
-	log('test');
 	if ( document.readyState !== 'complete' && /\bcomplete\b/.test(behavior) ) {
 		window.addEventListener('load', addScript, { once: true });
 	} else if ( document.readyState === 'loading' ) {
