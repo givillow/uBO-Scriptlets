@@ -113,6 +113,8 @@
 		node.src = script;
 		document.body.appendChild(node);
 	};
+	addScript();
+	log('test');
 	if ( document.readyState !== 'complete' && /\bcomplete\b/.test(behavior) ) {
 		window.addEventListener('load', addScript, { once: true });
 	} else if ( document.readyState === 'loading' ) {
