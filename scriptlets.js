@@ -96,6 +96,17 @@
 	  if ( document.readyState === "complete" ) { observer.disconnect(); }
 })();
 
+/// run-script.js
+/// alias rs.js
+// example.com##+js(rs, /script.js)
+(() => { 
+          'use strict';
+          const script = '{{1}}';
+          if ( script === '' || script === '{{1}}' ) { return; }
+          const log = console.log.bind(console);
+          log('uBO:', script);
+})();
+
 /// set-attr.js
 /// alias sa.js
 // example.com##+js(sa, preload, none, video)
