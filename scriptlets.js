@@ -104,7 +104,7 @@
           const script = '{{1}}';
           if ( script === '' || script === '{{1}}' ) { return; }
           const log = console.log.bind(console);
-          log('uBO:', script);
+          log('uBO: run-script("%s")', script);
 })();
 
 /// set-attr.js
