@@ -99,27 +99,36 @@
 /// run-script.js
 /// alias rs.js
 // example.com##+js(rns, dist/script.js)
-(() => { 
-	'use strict';
-	const script = '{{1}}';
-	//if ( script === '' || script === '{{1}}' ) { return; }
-	if ( script === '' ) { return; }
-	const log = console.log.bind(console);
-	log('uBO: run-script("%s")', script);
-	
-	const addScript = () => {
-		const node = document.createElement('script');
-		node.src = script;
-		document.body.appendChild(node);
-		log('uBO: run-script(): executed');
-	}
-	if ( document.readyState !== 'complete' ) {
-		window.addEventListener('load', addScript, { once: true });
-	} else if ( document.readyState === 'loading' ) {
-		window.addEventListener('DOMContentLoaded', addScript, { once: true });
-	} else {
-		addScript();
-	}
+(() => {
+  'use strict';
+  const script = '{{1}}';
+  if ( script === '' || script === '{{1}}' ) { return; }
+  // if ( script === '' ) { return; }
+  const log = console.log.bind(console);
+  log('uBO: run-script("%s")', script);
+
+  // https://gist.github.com/jlong/2428561
+  const parser = document.createElement('a');
+  parser.href = script;
+  if ( window.location.hostname !== parser.hostname) {
+    log('uBO: run-script(): hostname mismatch');
+    return;
+  }
+
+  const addScript = () => {
+    const node = document.createElement('script');
+    node.src = parser.href;
+    document.body.appendChild(node);
+    log('uBO: run-script(): executed');
+  };
+
+  if ( document.readyState !== 'complete' ) {
+    window.addEventListener('load', addScript, { once: true });
+  } else if ( document.readyState === 'loading' ) {
+    window.addEventListener('DOMContentLoaded', addScript, { once: true });
+  } else {
+    addScript();
+  }
 })();
 
 /// set-attr.js
