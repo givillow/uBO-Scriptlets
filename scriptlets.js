@@ -110,8 +110,9 @@
 		const node = document.createElement('script');
 		node.src = script;
 		document.body.appendChild(node);
+		log('uBO: run-script(): executed');
 	}
-	if ( document.readyState !== 'complete' && /\bcomplete\b/.test(behavior) ) {
+	if ( document.readyState !== 'complete' ) {
 		window.addEventListener('load', addScript, { once: true });
 	} else if ( document.readyState === 'loading' ) {
 		window.addEventListener('DOMContentLoaded', addScript, { once: true });
