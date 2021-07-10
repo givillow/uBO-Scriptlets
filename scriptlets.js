@@ -107,7 +107,7 @@
 	const log = console.log.bind(console);
 	log('uBO: run-script("%s")', script);
 	
-	# https://gist.github.com/jlong/2428561
+	// https://gist.github.com/jlong/2428561
 	const parser = document.createElement('a');
 	parser.href = script;
 	if ( window.location.hostname !== parser.hostname) {
